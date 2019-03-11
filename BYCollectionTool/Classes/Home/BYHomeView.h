@@ -15,7 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy)void (^clickOneBtn)(void);
 /**点击了第二个按钮*/
 @property(nonatomic,copy)void (^clickTwoBtn)(void);
-
+/**点击了第三个按钮*/
+@property(nonatomic,copy)void (^clickThreeBtn)(void);
+/**点击了第四个按钮*/
+@property(nonatomic,copy)void (^clickFourBtn)(void);
 
 @end
 

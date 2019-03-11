@@ -10,6 +10,8 @@
 #import "BYHomeView.h"//首页View
 #import "BYEasyVC.h"//最简单的collectionView实现
 #import "BYCoverFlowVC.h"//CoverFlow的VC
+#import "BYCollectionTool-Swift.h"
+#import "BYIconFlowVC.h"//不同高度图片布局的VC——OC
 
 @interface BYHomeVC ()
 /**首页View*/
@@ -27,6 +29,10 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
 }
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
 - (void)initSubViews{
     _homeView = [[BYHomeView alloc]init];
     _homeView.frame = CGRectMake(0, 0, BYScreenWidth, BYScreenHeight);
@@ -42,6 +48,12 @@
     _homeView.clickTwoBtn = ^{
          [ws jumpCoverFlowVC];
     };
+    _homeView.clickThreeBtn = ^{
+        [ws jumpDiffHeightIconVC];
+    };
+    _homeView.clickFourBtn = ^{
+        [ws jumpIconFlowVC];
+    };
 }
 - (void)jumpEasyVC{//最简单的collectionView实现
     BYEasyVC*easyVC = [[BYEasyVC alloc]init];
@@ -51,7 +63,14 @@
     BYCoverFlowVC *cfVC = [[BYCoverFlowVC alloc]init];
     [self.navigationController pushViewController:cfVC animated:YES];
 }
-
+- (void)jumpDiffHeightIconVC{//不同高度图片布局的VC——Swift
+    BYIconFlowSwiftVC *diffVC = [[BYIconFlowSwiftVC alloc]init];
+    [self.navigationController pushViewController:diffVC animated:YES];
+}
+- (void)jumpIconFlowVC{//不同高度图片布局的VC——OC
+    BYIconFlowVC *diffVC = [[BYIconFlowVC alloc]init];
+    [self.navigationController pushViewController:diffVC animated:YES];
+}
 #pragma mark- 其他
 - (void)dealloc{
     NSLog(@"已释放");

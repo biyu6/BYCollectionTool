@@ -15,6 +15,13 @@
 /**第二个按钮*/
 @property(nonatomic,weak)UIImageView *twoImgView;
 @property(nonatomic,weak)UILabel *twoLab;
+/**第三个按钮*/
+@property(nonatomic,weak)UIImageView *threeImgView;
+@property(nonatomic,weak)UILabel *threeLab;
+/**第四个按钮*/
+@property(nonatomic,weak)UIImageView *fourImgView;
+@property(nonatomic,weak)UILabel *fourLab;
+
 /**logo*/
 @property(nonatomic,weak)UIImageView *logoImgView;
 
@@ -45,6 +52,19 @@
     _twoLab = [BYVS createLabText:@"CoverFlow效果" font:BYPTBoldFont15 labColor:BYWhiteColor1 addSubView:_twoImgView];
     [_twoImgView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(twoBtnClick)]];
     
+    //第三个按钮
+    _threeImgView = [BYVS createImgView:@"home_rectangle" addSubView:self];
+    _threeImgView.userInteractionEnabled = YES;
+    _threeLab = [BYVS createLabText:@"高度不同的图片Swift" font:BYPTBoldFont15 labColor:BYWhiteColor1 addSubView:_threeImgView];
+    [_threeImgView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(threeBtnClick)]];
+    
+    //第四个按钮
+    _fourImgView = [BYVS createImgView:@"home_rectangle" addSubView:self];
+    _fourImgView.userInteractionEnabled = YES;
+    _fourLab = [BYVS createLabText:@"高度不同的图片OC" font:BYPTBoldFont15 labColor:BYWhiteColor1 addSubView:_fourImgView];
+    [_fourImgView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(fourBtnClick)]];
+    
+    
     //logo
     _logoImgView = [BYVS createImgView:@"home_logo" addSubView:self];
     
@@ -57,7 +77,7 @@
     [_oneImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.offset(BYWidth(217));
         make.height.offset(BYWidth(57));
-        make.top.equalTo(ws.mas_top).offset(BYHeight(103));
+        make.top.equalTo(ws.mas_top).offset(BYHeight(64));
         make.centerX.equalTo(ws.mas_centerX);
     }];
     [_oneLab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -73,6 +93,25 @@
         make.centerX.equalTo(ws.twoImgView.mas_centerX);
         make.centerY.equalTo(ws.twoImgView.mas_centerY).offset(BYWidth(-3));
     }];
+    //第三个按钮
+    [_threeImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.width.height.equalTo(ws.oneImgView);
+        make.top.equalTo(ws.twoImgView.mas_bottom).offset(BYHeight(9));
+    }];
+    [_threeLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(ws.threeImgView.mas_centerX);
+        make.centerY.equalTo(ws.threeImgView.mas_centerY).offset(BYWidth(-3));
+    }];
+    //第四个按钮
+    [_fourImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.width.height.equalTo(ws.oneImgView);
+        make.top.equalTo(ws.threeImgView.mas_bottom).offset(BYHeight(9));
+    }];
+    [_fourLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(ws.fourImgView.mas_centerX);
+        make.centerY.equalTo(ws.fourImgView.mas_centerY).offset(BYWidth(-3));
+    }];
+    
     //logo
     [_logoImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(ws.mas_centerX);
@@ -92,6 +131,14 @@
         self.clickTwoBtn();
     }
 }
-
-
+- (void)threeBtnClick{
+    if (self.clickThreeBtn) {
+        self.clickThreeBtn();
+    }
+}
+- (void)fourBtnClick{
+    if (self.clickFourBtn) {
+        self.clickFourBtn();
+    }
+}
 @end

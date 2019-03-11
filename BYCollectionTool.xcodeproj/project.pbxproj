@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		394D60D18BAB0D42A9C79647 /* libPods-BYCollectionTool.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B71ACD0D0FC44168AB9AE42 /* libPods-BYCollectionTool.a */; };
+		DB566BC42230F57F00C7163C /* BYEnlargeBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB566BC32230F57F00C7163C /* BYEnlargeBtn.swift */; };
 		DB7FA585222FCB270098FC2D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7FA584222FCB270098FC2D /* AppDelegate.m */; };
 		DB7FA58D222FCB280098FC2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB7FA58C222FCB280098FC2D /* Assets.xcassets */; };
 		DB7FA593222FCB280098FC2D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7FA592222FCB280098FC2D /* main.m */; };
@@ -32,12 +33,18 @@
 		DB7FA5DD222FCC040098FC2D /* BYCoverFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7FA5D6222FCC040098FC2D /* BYCoverFlowLayout.m */; };
 		DB7FA5DE222FCC040098FC2D /* BYEasyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7FA5D8222FCC040098FC2D /* BYEasyVC.m */; };
 		DB7FA5E0222FCDBF0098FC2D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB7FA5DF222FCDBF0098FC2D /* Images.xcassets */; };
+		DBAA2EF8223636D00012BE35 /* BYIconFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DBAA2EF7223636D00012BE35 /* BYIconFlowLayout.m */; };
+		DBAA2EFB2236496B0012BE35 /* BYIconFlowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DBAA2EFA2236496B0012BE35 /* BYIconFlowVC.m */; };
+		DBAA2EFE2236547F0012BE35 /* BYIconFlowSwiftVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAA2EFD2236547F0012BE35 /* BYIconFlowSwiftVC.swift */; };
+		DBAA2F00223654D70012BE35 /* BYIconFlowSwiftLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAA2EFF223654D70012BE35 /* BYIconFlowSwiftLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		32BB243DEF084786D284BA38 /* Pods-BYCollectionTool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BYCollectionTool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BYCollectionTool/Pods-BYCollectionTool.debug.xcconfig"; sourceTree = "<group>"; };
 		745BBD330439506D0423EA61 /* Pods-BYCollectionTool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BYCollectionTool.release.xcconfig"; path = "Pods/Target Support Files/Pods-BYCollectionTool/Pods-BYCollectionTool.release.xcconfig"; sourceTree = "<group>"; };
 		8B71ACD0D0FC44168AB9AE42 /* libPods-BYCollectionTool.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BYCollectionTool.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB566BBB2230B52F00C7163C /* BYNote.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BYNote.m; sourceTree = "<group>"; };
+		DB566BC32230F57F00C7163C /* BYEnlargeBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BYEnlargeBtn.swift; sourceTree = "<group>"; };
 		DB7FA580222FCB270098FC2D /* BYCollectionTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BYCollectionTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7FA583222FCB270098FC2D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DB7FA584222FCB270098FC2D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -88,6 +95,13 @@
 		DB7FA5D7222FCC040098FC2D /* BYCoverFlowVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BYCoverFlowVC.h; sourceTree = "<group>"; };
 		DB7FA5D8222FCC040098FC2D /* BYEasyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYEasyVC.m; sourceTree = "<group>"; };
 		DB7FA5DF222FCDBF0098FC2D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DBAA2EF6223636D00012BE35 /* BYIconFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BYIconFlowLayout.h; sourceTree = "<group>"; };
+		DBAA2EF7223636D00012BE35 /* BYIconFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BYIconFlowLayout.m; sourceTree = "<group>"; };
+		DBAA2EF92236496B0012BE35 /* BYIconFlowVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BYIconFlowVC.h; sourceTree = "<group>"; };
+		DBAA2EFA2236496B0012BE35 /* BYIconFlowVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BYIconFlowVC.m; sourceTree = "<group>"; };
+		DBAA2EFD2236547F0012BE35 /* BYIconFlowSwiftVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BYIconFlowSwiftVC.swift; sourceTree = "<group>"; };
+		DBAA2EFF223654D70012BE35 /* BYIconFlowSwiftLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BYIconFlowSwiftLayout.swift; sourceTree = "<group>"; };
+		DBAA2F01223655350012BE35 /* BYCollectionTool-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BYCollectionTool-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,9 +124,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DB566BBD2230F0EA00C7163C /* DiffHeightIcon */ = {
+			isa = PBXGroup;
+			children = (
+				DBAA2F01223655350012BE35 /* BYCollectionTool-Bridging-Header.h */,
+				DB566BC32230F57F00C7163C /* BYEnlargeBtn.swift */,
+				DBAA2EFD2236547F0012BE35 /* BYIconFlowSwiftVC.swift */,
+				DBAA2EFF223654D70012BE35 /* BYIconFlowSwiftLayout.swift */,
+			);
+			path = DiffHeightIcon;
+			sourceTree = "<group>";
+		};
 		DB7FA577222FCB270098FC2D = {
 			isa = PBXGroup;
 			children = (
+				DB566BBB2230B52F00C7163C /* BYNote.m */,
 				DB7FA582222FCB270098FC2D /* BYCollectionTool */,
 				DB7FA581222FCB270098FC2D /* Products */,
 				EBFDD3D03C0495C3365BEE94 /* Pods */,
@@ -220,6 +246,8 @@
 				DB7FA5CD222FCC040098FC2D /* BYHomeVC.m */,
 				DB7FA5CC222FCC040098FC2D /* BYHomeView.h */,
 				DB7FA5CE222FCC040098FC2D /* BYHomeView.m */,
+				DBAA2EFC2236518E0012BE35 /* DiffHeightIconOC */,
+				DB566BBD2230F0EA00C7163C /* DiffHeightIcon */,
 				DB7FA5E2222FD0E00098FC2D /* CoverFlow */,
 				DB7FA5E1222FD0CE0098FC2D /* Easy */,
 			);
@@ -246,6 +274,17 @@
 				DB7FA5D5222FCC040098FC2D /* BYCoverFlowCell.m */,
 			);
 			path = CoverFlow;
+			sourceTree = "<group>";
+		};
+		DBAA2EFC2236518E0012BE35 /* DiffHeightIconOC */ = {
+			isa = PBXGroup;
+			children = (
+				DBAA2EF92236496B0012BE35 /* BYIconFlowVC.h */,
+				DBAA2EFA2236496B0012BE35 /* BYIconFlowVC.m */,
+				DBAA2EF6223636D00012BE35 /* BYIconFlowLayout.h */,
+				DBAA2EF7223636D00012BE35 /* BYIconFlowLayout.m */,
+			);
+			path = DiffHeightIconOC;
 			sourceTree = "<group>";
 		};
 		EBFDD3D03C0495C3365BEE94 /* Pods */ = {
@@ -291,6 +330,7 @@
 				TargetAttributes = {
 					DB7FA57F222FCB270098FC2D = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -377,9 +417,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB7FA5B6222FCBE40098FC2D /* UINavigationController+BYBackground.m in Sources */,
+				DBAA2F00223654D70012BE35 /* BYIconFlowSwiftLayout.swift in Sources */,
 				DB7FA5BD222FCBE40098FC2D /* UIViewController+BYAlert.m in Sources */,
 				DB7FA5C0222FCBE40098FC2D /* BYVerificationCode.m in Sources */,
 				DB7FA5D9222FCC040098FC2D /* BYHomeVC.m in Sources */,
+				DBAA2EFE2236547F0012BE35 /* BYIconFlowSwiftVC.swift in Sources */,
 				DB7FA5BB222FCBE40098FC2D /* UILabel+BYSpace.m in Sources */,
 				DB7FA5DD222FCC040098FC2D /* BYCoverFlowLayout.m in Sources */,
 				DB7FA593222FCB280098FC2D /* main.m in Sources */,
@@ -389,13 +431,16 @@
 				DB7FA5BE222FCBE40098FC2D /* BYViewSingle.m in Sources */,
 				DB7FA5DB222FCC040098FC2D /* BYCoverFlowVC.m in Sources */,
 				DB7FA5B9222FCBE40098FC2D /* BYNoPasteTF.m in Sources */,
+				DBAA2EFB2236496B0012BE35 /* BYIconFlowVC.m in Sources */,
 				DB7FA5BC222FCBE40098FC2D /* UIButton+BYAddTag.m in Sources */,
 				DB7FA5B5222FCBE40098FC2D /* NSData+BYData.m in Sources */,
 				DB7FA5DE222FCC040098FC2D /* BYEasyVC.m in Sources */,
 				DB7FA5DC222FCC040098FC2D /* BYCoverFlowCell.m in Sources */,
+				DB566BC42230F57F00C7163C /* BYEnlargeBtn.swift in Sources */,
 				DB7FA5C5222FCBEA0098FC2D /* BYNetworking.m in Sources */,
 				DB7FA5DA222FCC040098FC2D /* BYHomeView.m in Sources */,
 				DB7FA5B7222FCBE40098FC2D /* UIView+MJAlertView.m in Sources */,
+				DBAA2EF8223636D00012BE35 /* BYIconFlowLayout.m in Sources */,
 				DB7FA585222FCB270098FC2D /* AppDelegate.m in Sources */,
 				DB7FA5B8222FCBE40098FC2D /* BYRegular.m in Sources */,
 			);
@@ -522,6 +567,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XF632N7ZKB;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/BYCollectionTool/Macro/BYPchHeader.h";
@@ -533,6 +579,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.biyu6.collectionTool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BYCollectionTool/Classes/Home/DiffHeightIcon/BYCollectionTool-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -543,6 +592,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XF632N7ZKB;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/BYCollectionTool/Macro/BYPchHeader.h";
@@ -554,6 +604,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.biyu6.collectionTool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BYCollectionTool/Classes/Home/DiffHeightIcon/BYCollectionTool-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
