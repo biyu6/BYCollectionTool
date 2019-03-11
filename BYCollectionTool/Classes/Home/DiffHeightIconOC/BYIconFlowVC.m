@@ -8,7 +8,9 @@
 
 #import "BYIconFlowVC.h"
 #import "BYIconFlowLayout.h"//图片的布局样式
-
+#import "BYIconFlowCollectionCell.h"//瀑布流cell
+#import "YBImageBrowser.h"
+//#import "MainImageCell.h"
 
 static NSString *cellIdStr = @"IconFlow_Cell";
 @interface BYIconFlowVC ()<UICollectionViewDataSource,UICollectionViewDelegate>
@@ -16,8 +18,7 @@ static NSString *cellIdStr = @"IconFlow_Cell";
 /**瀑布流布局*/
 @property(nonatomic,strong)BYIconFlowLayout *iconFlowLayout;
 /**数据源数组*/
-@property(nonatomic,strong)NSMutableArray *iconArrM;
-
+@property(nonatomic,strong)NSMutableArray *iconNameArrM;
 
 @end
 @implementation BYIconFlowVC
@@ -41,7 +42,8 @@ static NSString *cellIdStr = @"IconFlow_Cell";
     _iconFlowLayout = flowLayout;
     //创建UICollectionView
     _collectionView = [[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
-    [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellIdStr];
+    [_collectionView registerClass:[BYIconFlowCollectionCell class] forCellWithReuseIdentifier:cellIdStr];
+//    [_collectionView registerClass:[MainImageCell class] forCellWithReuseIdentifier:cellIdStr];
     _collectionView.backgroundColor = [UIColor whiteColor];
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;//水平滚动
     _collectionView.dataSource = self;
@@ -50,12 +52,14 @@ static NSString *cellIdStr = @"IconFlow_Cell";
 }
 
 - (void)getData{
-    _iconArrM = [NSMutableArray array];
+    _iconNameArrM = [NSMutableArray array];
     NSMutableArray *imgArrM =  [NSMutableArray array];
-    for (int i=0; i<17; i++) {
-        NSString *str = [NSString stringWithFormat:@"img_%d",i];
-        [_iconArrM addObject:str];
-        UIImage *img = [UIImage imageNamed:str];
+    for (int i=0; i<11; i++) {
+        NSString *str = [NSString stringWithFormat:@"gif_%d.gif",i];
+//    for (int i=0; i<18; i++) {
+//        NSString *str = [NSString stringWithFormat:@"img_%d.jpg",i];
+        [_iconNameArrM addObject:str];
+        YYImage *img = [YYImage imageNamed:str];
         [imgArrM addObject:img];
     }
     _iconFlowLayout.dataArr = imgArrM;//给瀑布流布局赋值
@@ -66,22 +70,74 @@ static NSString *cellIdStr = @"IconFlow_Cell";
     return 1;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return _iconArrM.count;
+    return _iconNameArrM.count;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdStr forIndexPath:indexPath];
-    UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, cell.bounds.size.width, cell.bounds.size.height-25)];
-    imgView.image = [UIImage imageNamed:_iconArrM[indexPath.row]];
-    cell.backgroundView = imgView;
-    
+    BYIconFlowCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdStr forIndexPath:indexPath];
+    cell.imgView.image = [UIImage imageNamed:_iconNameArrM[indexPath.row]];
+//    MainImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdStr forIndexPath:indexPath];
+//    cell.data = self.iconNameArrM[indexPath.row];
     return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"点击了item");
+     [self showBrowserForMixedCaseWithIndex:indexPath.row];
 }
 - (void)dealloc{
     NSLog(@"已释放");
 }
 
+
+#pragma mark- 图片浏览器
+- (void)showBrowserForMixedCaseWithIndex:(NSInteger)index {
+    NSMutableArray *browserDataArr = [NSMutableArray array];
+    [self.iconNameArrM enumerateObjectsUsingBlock:^(NSString *_Nonnull imageStr, NSUInteger idx, BOOL * _Nonnull stop) {
+        // 此处只是为了判断测试用例的数据源是否为视频，并不是仅支持 MP4。/ This is just to determine whether the data source of the test case is video, not just MP4.
+        if ([imageStr hasSuffix:@".MP4"]) {
+            if ([imageStr hasPrefix:@"http"]) {// Type 1 : 网络视频 / Network video
+                YBVideoBrowseCellData *data = [YBVideoBrowseCellData new];
+                data.url = [NSURL URLWithString:imageStr];
+                data.sourceObject = [self sourceObjAtIdx:idx];
+                [browserDataArr addObject:data];
+            } else {// Type 2 : 本地视频 / Local video
+                NSString *path = [[NSBundle mainBundle] pathForResource:imageStr.stringByDeletingPathExtension ofType:imageStr.pathExtension];
+                NSURL *url = [NSURL fileURLWithPath:path];
+                YBVideoBrowseCellData *data = [YBVideoBrowseCellData new];
+                data.url = url;
+                data.sourceObject = [self sourceObjAtIdx:idx];
+                [browserDataArr addObject:data];
+            }
+        } else if ([imageStr hasPrefix:@"http"]) {// Type 3 : 网络图片 / Network image
+            YBImageBrowseCellData *data = [YBImageBrowseCellData new];
+            data.url = [NSURL URLWithString:imageStr];
+            data.sourceObject = [self sourceObjAtIdx:idx];
+            [browserDataArr addObject:data];
+        } else {// Type 4 : 本地图片 / Local image (配置本地图片推荐使用 YBImage)
+            YBImageBrowseCellData *data = [YBImageBrowseCellData new];
+            data.imageBlock = ^__kindof UIImage * _Nullable{
+                return [YBImage imageNamed:imageStr];
+            };
+            data.sourceObject = [self sourceObjAtIdx:idx];
+            [browserDataArr addObject:data];
+        }
+    }];
+    //Type 5 : 自定义 / Custom
+//    CustomCellData *data = [CustomCellData new];
+//    data.text = @"Custom Cell";
+//    [browserDataArr addObject:data];
+    
+    YBImageBrowser *browser = [YBImageBrowser new];
+    browser.dataSourceArray = browserDataArr;
+    browser.currentIndex = index;
+    [browser show];
+}
+#pragma mark - Tool
+- (id)sourceObjAtIdx:(NSInteger)idx {
+//    MainImageCell *cell = (MainImageCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:idx inSection:0]];
+//    return cell ? cell.mainImageView : nil;
+    BYIconFlowCollectionCell *cell = (BYIconFlowCollectionCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:idx inSection:0]];
+    return cell ? cell.imgView : nil;
+    
+}
 
 @end
